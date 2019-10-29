@@ -4,6 +4,8 @@ const EVENT_NAME = 'hit';
 
 export class Testeves {
   private _event: EventEmitter;
+  private _disabled: boolean | ((...args: any[]) => boolean);
+
   public observation: object;
   public isFinished: Promise<any>;
   public finishProcess: (value?: any) => void = () => {
@@ -13,7 +15,17 @@ export class Testeves {
     throw new Error('finishWithError not initialized yet');
   };
 
-  constructor() {
+  constructor({
+    disabled = false,
+  }: {
+    disabled?: boolean | ((...args: any[]) => boolean);
+  } = {}) {
+    if (typeof disabled === 'function') {
+      this._disabled = disabled();
+    } else {
+      this._disabled = disabled;
+    }
+
     this._event = new EventEmitter();
     this.observation = {};
     this.isFinished = new Promise((resolve, reject) => {
@@ -29,6 +41,9 @@ export class Testeves {
     customListener?: (value: any) => void;
     disableNativeListener?: boolean;
   } = {}) {
+    if (this._disabled) {
+      return;
+    }
     if (!disableNativeListener) {
       this._event.addListener(EVENT_NAME, (data: { [key: string]: any }) => {
         Object.assign(this.observation, data);
@@ -47,6 +62,9 @@ export class Testeves {
   }
 
   emit(data: { [key: string]: any }) {
+    if (this._disabled) {
+      return;
+    }
     this._event.emit(EVENT_NAME, data);
   }
 }
