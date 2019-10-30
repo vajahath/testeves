@@ -17,8 +17,10 @@ export class Testeves {
 
   constructor({
     disabled = false,
+    disableNativeListener = false,
   }: {
     disabled?: boolean | ((...args: any[]) => boolean);
+    disableNativeListener?: boolean;
   } = {}) {
     if (typeof disabled === 'function') {
       this._disabled = disabled();
@@ -32,23 +34,23 @@ export class Testeves {
       this.finishProcess = data => resolve(data);
       this.finishWithError = err => reject(err);
     });
-  }
 
-  listen({
-    customListener = undefined,
-    disableNativeListener = false,
-  }: {
-    customListener?: (value: any) => void;
-    disableNativeListener?: boolean;
-  } = {}) {
-    if (this._disabled) {
-      return;
-    }
-    if (!disableNativeListener) {
+    if (!disableNativeListener && !disabled) {
+      console.log('attaching listener');
       this._event.addListener(EVENT_NAME, (data: { [key: string]: any }) => {
         console.log('recording');
         Object.assign(this.observation, data);
       });
+    }
+  }
+
+  listen({
+    customListener = undefined,
+  }: {
+    customListener?: (value: any) => void;
+  } = {}) {
+    if (this._disabled) {
+      return;
     }
 
     if (customListener) {
@@ -66,6 +68,7 @@ export class Testeves {
     if (this._disabled) {
       return;
     }
+    console.log('emitting');
     this._event.emit(EVENT_NAME, data);
   }
 }
