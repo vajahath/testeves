@@ -46,6 +46,7 @@ export class Testeves {
     }
     if (!disableNativeListener) {
       this._event.addListener(EVENT_NAME, (data: { [key: string]: any }) => {
+        console.log('recording');
         Object.assign(this.observation, data);
       });
     }
