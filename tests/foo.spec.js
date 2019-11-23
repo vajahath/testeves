@@ -3,9 +3,8 @@ const observer = hook.listen();
 
 const { foo } = require('./foo');
 
-console.log('process.version', process.version);
-
 beforeAll(() => {
+  console.log('process.version', process.version);
   foo();
   return hook.isFinished;
 });
