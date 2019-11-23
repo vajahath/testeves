@@ -7,7 +7,7 @@ jobs:
     runs-on: ubuntu-latest
     strategy:
       matrix:
-        node: ['8', '10', '12', 'latest']
+        node: ['8', '10', '12', 'lts', 'latest']
     name: build and test (node ${{ matrix.node }})
 
     steps:
@@ -15,5 +15,6 @@ jobs:
       - uses: actions/setup-node@v1.1.0
         with:
           node-version: ${{ matrix.node }}
+      - run: node --version
       - run: npm ci
       - run: npm test
