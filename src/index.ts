@@ -36,9 +36,7 @@ export class Testeves {
     });
 
     if (!disableNativeListener && !disabled) {
-      console.log('attaching listener');
       this._event.addListener(EVENT_NAME, (data: { [key: string]: any }) => {
-        console.log('recording');
         Object.assign(this.observation, data);
       });
     }
@@ -68,7 +66,6 @@ export class Testeves {
     if (this._disabled) {
       return;
     }
-    console.log('emitting');
     this._event.emit(EVENT_NAME, data);
   }
 }
