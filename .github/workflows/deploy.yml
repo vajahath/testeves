@@ -18,10 +18,9 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
-          alwaysAuth: true
       - run: node --version
       - run: npm ci
-      - run: npm publish
+      - run: npm publish --scope=@vaju
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
@@ -35,10 +34,8 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://npm.pkg.github.com'
-          alwaysAuth: true
       - run: node --version
       - run: npm ci
-      - run: npm test
-      - run: npm publish
+      - run: npm publish --scope=@vajahath
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
