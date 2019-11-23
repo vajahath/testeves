@@ -1,5 +1,7 @@
 # testeves
 
+![](https://github.com/vajahath/testeves/workflows/build-and-test/badge.svg)
+
 A workaround testing strategy for highly coupled legacy codebase.
 
 ## Why
