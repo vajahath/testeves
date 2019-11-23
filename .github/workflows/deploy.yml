@@ -18,13 +18,12 @@ jobs:
         with:
           node-version: '10.x'
           registry-url: 'https://registry.npmjs.org'
+          scope: '@vaju'
       - run: node --version
       - run: npm ci
-      - run: npm config set @vaju:registry https://registry.npmjs.org
-      - run: npm publish --access=public --scope=@vaju
+      - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          npm_config_scope: '@vaju'
 
   Deploy-To-GitHub-Package-Registry:
     runs-on: ubuntu-latest
