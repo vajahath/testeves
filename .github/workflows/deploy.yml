@@ -20,10 +20,10 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: node --version
       - run: npm ci
-      - run: npm publish --scope=@vaju --access=public
+      - run: npm config set @vaju:registry https://registry.npmjs.org
+      - run: npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          npm_config_scope: '@vaju'
 
   Deploy-To-GitHub-Package-Registry:
     runs-on: ubuntu-latest
@@ -37,6 +37,7 @@ jobs:
           registry-url: 'https://npm.pkg.github.com'
       - run: node --version
       - run: npm ci
+      - run: npm config set @vajahath:registry https://npm.pkg.github.com
       - run: npm publish --scope=@vajahath
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
