@@ -21,9 +21,10 @@ jobs:
           scope: '@vaju'
       - run: node --version
       - run: npm ci
-      - run: npm publish --access=public
+      - run: npm publish --access=public --scope=@vaju
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          npm_config_scope: '@vaju'
 
   Deploy-To-GitHub-Package-Registry:
     runs-on: ubuntu-latest
