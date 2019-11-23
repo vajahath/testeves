@@ -1,6 +1,11 @@
 name: Deploy
 
-on: tags
+on:
+  push:
+    tags:
+      - '*'
+  release:
+    types: published
 
 jobs:
   Deploy-To-NPM:
