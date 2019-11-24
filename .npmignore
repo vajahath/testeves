@@ -3,7 +3,7 @@
 coverage/
 src/
 tests/
-.estlintrc.json
+.eslintrc.json
 .gitignore
 .npmignore
 .prettierrc
