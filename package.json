@@ -32,7 +32,7 @@
     "@types/node": "^12.11.7",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
-    "@vajahath/npm-scope-prefixer": "^1.0.3",
+    "@vaju/npm-scope-prefixer": "^1.0.3",
     "eslint": "^6.7.0",
     "jest": "^24.9.0",
     "prettier": "^1.19.1",
