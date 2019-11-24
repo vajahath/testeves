@@ -1,6 +1,6 @@
 {
   "name": "@vaju/testeves",
-  "version": "1.0.12",
+  "version": "1.0.20",
   "description": "A workaround testing strategy for highly coupled legacy codebase.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
