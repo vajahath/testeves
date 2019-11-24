@@ -15,11 +15,17 @@ You emit events at critical points in the codebase. The test agent will listen f
 
 ## Install
 
+Requires Node >= 8.
+
+From npm:
+
 ```sh
 npm install @vaju/testeves
 ```
 
-This package includes type definitions required for TypeScript.
+From [Github Package Registry](https://github.com/vajahath/testeves/packages). ([Guide](https://help.github.com/en/github/managing-packages-with-github-packages/configuring-npm-for-use-with-github-packages)).
+
+_(✔ Type definitions included for TypeScript)_
 
 ## Usage
 
