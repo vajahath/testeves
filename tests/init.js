@@ -1,4 +1,4 @@
-const { Testeves } = require('../dist');
+const { Testeves } = require('../dist/index');
 
 const hook = new Testeves();
 

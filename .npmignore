@@ -1,7 +1,10 @@
-src
-tsconfig.json
+.github/
+.vscode/
+coverage/
+src/
+tests/
+.estlintrc.json
 .gitignore
-.vscode
 .npmignore
 .prettierrc
-.github
+tsconfig.json

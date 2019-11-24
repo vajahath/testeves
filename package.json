@@ -1,13 +1,19 @@
 {
-  "name": "testeves",
-  "version": "1.0.4",
+  "name": "@vaju/testeves",
+  "version": "1.0.12",
   "description": "A workaround testing strategy for highly coupled legacy codebase.",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
+  "directories": {
+    "test": "tests",
+    "lib": "dist"
+  },
   "scripts": {
-    "test": "npm run build && jest",
+    "test": "npm run build && jest --coverage",
     "build": "tsc",
-    "prepublishOnly": "npm run test"
+    "prepublishOnly": "npm run test",
+    "rescope": "npm-scope-prefixer -s",
+    "lint": "eslint src/**/* tests/**/* && prettier src/**/* tests/**/* -l"
   },
   "repository": {
     "type": "git",
@@ -24,7 +30,12 @@
   "homepage": "https://github.com/vajahath/testeves#readme",
   "devDependencies": {
     "@types/node": "^12.11.7",
+    "@typescript-eslint/eslint-plugin": "^2.8.0",
+    "@typescript-eslint/parser": "^2.8.0",
+    "@vajahath/npm-scope-prefixer": "^1.0.3",
+    "eslint": "^6.7.0",
     "jest": "^24.9.0",
+    "prettier": "^1.19.1",
     "typescript": "^3.6.4"
   }
 }

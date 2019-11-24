@@ -16,15 +16,15 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1.2.0
         with:
-          node-version: '10.x'
+          node-version: '12'
           registry-url: 'https://registry.npmjs.org'
-          scope: '@vaju'
       - run: node --version
       - run: npm ci
-      - run: npm publish --access=public --scope=@vaju
+      - run: npm run lint
+      - run: npm run rescope @vaju
+      - run: ls && npm publish --access=public
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          npm_config_scope: '@vaju'
 
   Deploy-To-GitHub-Package-Registry:
     runs-on: ubuntu-latest
@@ -34,12 +34,12 @@ jobs:
       - uses: actions/checkout@v1
       - uses: actions/setup-node@v1.2.0
         with:
-          node-version: '10.x'
+          node-version: '12'
           registry-url: 'https://npm.pkg.github.com'
       - run: node --version
       - run: npm ci
-      - run: npm config set @vajahath:registry https://npm.pkg.github.com
-      - run: npm publish --scope=@vajahath
+      - run: npm run lint
+      - run: npm run rescope @vajahath
+      - run: ls && npm publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GH_TOKEN }}
-          npm_config_scope: '@vajahath'

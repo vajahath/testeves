@@ -1,4 +1,4 @@
-name: build-and-test
+name: Build-and-test
 
 on:
   push:
@@ -22,4 +22,5 @@ jobs:
           node-version: ${{ matrix.node }}
       - run: node --version
       - run: npm ci
+      - run: npm run lint
       - run: npm test
