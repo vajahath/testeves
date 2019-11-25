@@ -6,7 +6,7 @@ export class Testeves {
   private _event: EventEmitter;
   private _disabled: boolean | ((...args: any[]) => boolean);
 
-  public observation: object;
+  public observation: { [key: string]: any };
   public isFinished: Promise<any>;
   public finishProcess: (value?: any) => void = () => {
     throw new Error('finishProcess not initialized yet');

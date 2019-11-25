@@ -1,10 +1,8 @@
-const { hook } = require('./init');
+import { hook } from './init';
 
-function foo() {
+export function foo() {
   ['a', 'b', 'c'].forEach(item => {
     hook.emit({ [item]: true });
   });
   return hook.finishProcess();
 }
-
-module.exports = { foo };

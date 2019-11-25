@@ -8,3 +8,6 @@ tests/
 .npmignore
 .prettierrc
 tsconfig.json
+tests-dist/
+tsconfig.spec.json
+jest.config.json

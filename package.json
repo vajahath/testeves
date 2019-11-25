@@ -9,8 +9,10 @@
     "lib": "dist"
   },
   "scripts": {
-    "test": "npm run build && jest --coverage",
-    "build": "tsc",
+    "test": "npm run build && jest --coverage --config jest.config.json",
+    "build": "npm run src-build && npm run tests-build",
+    "src-build": "tsc -p tsconfig.json",
+    "tests-build": "tsc -p tsconfig.spec.json",
     "prepublishOnly": "npm run test",
     "rescope": "npm-scope-prefixer -s",
     "lint": "eslint src/**/* tests/**/* && prettier src/**/* tests/**/* -l"
@@ -32,6 +34,7 @@
   },
   "homepage": "https://github.com/vajahath/testeves#readme",
   "devDependencies": {
+    "@types/jest": "^24.0.23",
     "@types/node": "^12.11.7",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
