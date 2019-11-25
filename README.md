@@ -1,8 +1,6 @@
 # testeves
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/vajahath/testeves.svg)](https://greenkeeper.io/)
-
-![](https://github.com/vajahath/testeves/workflows/Build-and-test/badge.svg)
+![](https://github.com/vajahath/testeves/workflows/Build-and-test/badge.svg) [![Greenkeeper badge](https://badges.greenkeeper.io/vajahath/testeves.svg)](https://greenkeeper.io/)
 
 A workaround testing strategy for highly coupled legacy codebase.
 
