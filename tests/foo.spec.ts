@@ -4,7 +4,6 @@ const observer = hook.listen();
 import { foo } from './foo';
 
 beforeAll(() => {
-  console.log('process.version', process.version);
   foo();
   return hook.isFinished;
 });
