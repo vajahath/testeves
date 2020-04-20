@@ -37,7 +37,7 @@
     "@types/jest": "^24.0.23",
     "@types/node": "^13.1.7",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
-    "@typescript-eslint/parser": "^2.8.0",
+    "@typescript-eslint/parser": "^2.29.0",
     "@vaju/npm-scope-prefixer": "^1.0.3",
     "eslint": "^6.7.0",
     "jest": "^24.9.0",
