@@ -35,7 +35,7 @@
   "homepage": "https://github.com/vajahath/testeves#readme",
   "devDependencies": {
     "@types/jest": "^24.0.23",
-    "@types/node": "^13.1.7",
+    "@types/node": "^14.0.9",
     "@typescript-eslint/eslint-plugin": "^2.8.0",
     "@typescript-eslint/parser": "^2.8.0",
     "@vaju/npm-scope-prefixer": "^1.0.3",
